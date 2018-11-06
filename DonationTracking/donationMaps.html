@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kreon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Coustard|Days+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
+</head>
+<body>
+  <div class="topbar">
+    <span style="font-size:20px;cursor:pointer; font-family:'Kreon'" onclick="openNav()" class="menu">&#9776;Menu</span>
+    <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+    <div class="logo">
+      <span></span>
+      <h2>Donation Tracker MAPS</h2>
+    </div>
+
+  </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" class="menu">&times;</a>
+    <a href="locationList.html">Location List</a>
+    <a href="donationList.html">Donation List</a>
+    <a href="donationMaps.html">Locations on Map</a>
+    <a href="addDonation.html">Add a Donation</a>
+  </div>
+
+  <div id="map"></div>
+  <script src="https://fh-screencast-2340.firebaseio.com/"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="main.js">
+
+  </script>
+    <script type="text/javascript">
+    var map;
+
+      var locations = [];
+      function initMap() {
+        var afd = {lat: 33.75416, lng: -84.37742};
+        var boys = {lat: 33.73182, lng: -84.43971};
+        var pathways = {lat: 33.70866, lng: -84.41853};
+        var pavilion = {lat: 33.80129, lng: -84.25537};
+        var dandd = {lat: 33.71747, lng: -84.2521};
+        var keep = {lat: 33.96921, lng: -84.3688};
+        var middle = {lat: 33.75416, lng: -84.3688};
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: middle
+        });
+        var marker1 = new google.maps.Marker({
+          position: afd,
+          map: map,
+          title: 'Name: AFD Station 4 Phone Number:(404) 555 - 3456'
+        });
+        var marker2 = new google.maps.Marker({
+          position: boys,
+          map: map,
+          title: 'Name: BOYS & GILRS CLUB W.W. WOOLFOLK Phone Number:(404) 555 - 1234'
+        });
+        var marker3 = new google.maps.Marker({
+          position: pathways,
+          map: map,
+          title: 'Name: PATHWAY UPPER ROOM CHRISTIAN MINISTRIES Phone Number:(404) 555 - 5432'
+        });
+        var marker4 = new google.maps.Marker({
+          position: pavilion,
+          map: map,
+          title: 'Name: PAVILION OF HOPE INC Phone Number:(404) 555 - 8765'
+        });
+        var marker5 = new google.maps.Marker({
+          position: dandd,
+          map: map,
+          title: 'Name: D&D CONVENIENCE STORE Phone Number:(404) 555 - 9876'
+        });
+        var marker6 = new google.maps.Marker({
+          position: keep,
+          map: map,
+          title: 'Name: KEEP NORTH FULTON BEAUTIFUL Phone Number:(770) 555 - 7321'
+        });
+        marker1.addListener('click', function() {
+          window.location.href="locationDetail.html";
+        });
+        marker2.addListener('click', function() {
+          window.location.href="locationDetail.html";
+        });
+        marker3.addListener('click', function() {
+          window.location.href="locationDetail.html";
+        });
+        marker4.addListener('click', function() {
+          window.location.href="locationDetail.html";
+        });
+        marker5.addListener('click', function() {
+          window.location.href="locationDetail.html";
+        });
+        marker6.addListener('click', function() {
+          window.location.href="locationDetail.html";
+        });
+
+      }
+
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzSlwBdviOE3IOPHiEA46t0E73PyM0tss&callback=initMap">
+    </script>
+    <script>
+    $(document).ready(() => {
+      var height = $(".topbar").css("height")
+      $("#map").css("margin-top", "" + height);
+    });
+
+    $("#dateSubmit").on('click', e => {
+      console.log(getInputVal('begDate'));
+      reloadMap(getInputVal('begDate'), getInputVal('endDate'));
+    });
+
+    </script>
+
+</body>
+</html>

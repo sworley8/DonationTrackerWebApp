@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "DonationTracking",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

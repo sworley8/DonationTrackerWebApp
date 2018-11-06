@@ -1,0 +1,143 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kreon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Coustard|Days+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
+  <title>Donation Tracker</title>
+</head>
+<body>
+  <div class="topbar">
+    <span style="font-size:20px;cursor:pointer; font-family:'Kreon'" onclick="openNav()" class="menu">&#9776;Menu</span>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+    <div class="logo">
+      <span></span>
+      <h2>Donation Tracker LIST</h2>
+    </div>
+    <div class="logo">
+
+      <h2>Donation Tracker</h2>
+    </div>
+    <div class="login">
+
+      <div class="userLogin" id="userLogin">
+        <p>
+          <label class="formLabels">Email</label>
+          <input type="email" id="email" required>
+        </p>
+        <p>
+          <label class="formLabels">Password</label>
+          <input type="password" id="password" required>
+        </p>
+        <p>
+          <button class="formButton" id="login">Login</button>
+        </p>
+        <p>
+          <button class="formButton" id="logout">Logout</button>
+        </p>
+        <p>
+          <button class="formButton" id="register">Register</button>
+        </p>
+      </div>
+    </div>
+  </div>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="locationList.html">View Locations</a>
+  <a href="donationList.html">Search for Donation</a>
+  <a href="donationMaps.html">Locations on Map</a>
+  <a href="addDonation.html">Add Donation</a>
+</div>
+<div>
+  <div>
+    <form>
+      <br>
+      <br>
+      <br>
+      <br>
+      Name:<br>
+      <input type="text" id="name"><br>
+      Time Stamp:<br>
+      <input type="text" id="timestamp"><br>
+      Location:<br>
+      <input type="radio" id="location1" name= "location" value="AFD Station 4" checked> AFD Station 4<br>
+      <input type="radio" id="location2" name= "location" value="BOYS & GILRS CLUB W.W. WOOLFOLK"> BOYS & GILRS CLUB W.W. WOOLFOLK<br>
+      <input type="radio" id="location3" name= "location" value="PATHWAY UPPER ROOM CHRISTIAN MINISTRIES"> PATHWAY UPPER ROOM CHRISTIAN MINISTRIES<br>
+      <input type="radio" id="location4" name= "location" value="PAVILION OF HOPE INC"> PAVILION OF HOPE INC<br>
+      <input type="radio" id="location5" name= "location" value="D&D CONVENIENCE STORE"> D&D CONVENIENCE STORE<br>
+      <input type="radio" id="location6" name= "location" value="KEEP NORTH FULTON BEAUTIFUL"> KEEP NORTH FULTON BEAUTIFUL<br>
+      Short Description:<br>
+      <input type="text" id="shortdescription"><br>
+      Full Description:<br>
+      <input type="text" id="fulldescription"><br>
+      Value:<br>
+      <input type="text" id="value"><br>
+      Category:<br>
+      <input type="radio" id="category1" name= "category" value="dropOff" checked> Drop Off<br>
+      <input type="radio" id="category2" name= "category" value="store"> Store<br>
+      <input type="radio" id="category3" name= "category" value="warehouse"> Warehouse<br>
+      <input type="button" value="Submit" id="submitButton"><br>
+    </form>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/4.5.2/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="main.js"></script>
+<script type="text/javascript">
+$(document).ready(() => {
+    console.log("yehe");
+    var height = $(".topbar").css("height");
+    console.log(height);
+    $("#infoField").css("margin-top", "" + height);
+  });
+  function addRatReport(name, timestamp, location, shortdescription, fulldescription, value, category) {
+    firebase.database().ref().child("Donations").push().set({
+
+      Name: name,
+      'Time Stamp': timestamp,
+      'Location': location,
+      'Short Description': shortdescription,
+      'Full Description': fulldescription,
+      Value: value,
+      Category: category
+    });
+    // var ref = firebase.database().ref().child("Count");
+    // ref.transaction(function(searches) {
+    //   if (searches) {
+    //     searches++;
+    //   }
+    //   return searches;
+    // })
+    //
+    // //firebase.database().ref().child("Count").update({Count:})
+
+  }
+
+  $("#submitButton").on('click', e => {
+    console.log("yah");
+    addRatReport(
+      getInputVal('name'),
+      getInputVal('timestamp'),
+      $('input[name=location]:checked').val(),
+      getInputVal('shortdescription'),
+      getInputVal('fulldescription'),
+      getInputVal('value'),
+      $('input[name=category]:checked').val());
+  });
+</script>
+</body>
+</html>

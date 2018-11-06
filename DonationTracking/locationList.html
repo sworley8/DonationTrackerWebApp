@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kreon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Coustard|Days+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
+  <title>Donation Tracker</title>
+</head>
+
+<body>
+  <div class="topbar">
+    <span style="font-size:20px;cursor:pointer; font-family:'Kreon'" onclick="openNav()" class="menu">&#9776;Menu</span>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+    <div class="logo">
+      <span></span>
+      <h2>Donation Tracker LIST</h2>
+    </div>
+    <div class="logo">
+
+      <h2>Donation Tracker</h2>
+    </div>
+    <div class="login">
+
+      <div class="userLogin" id="userLogin">
+        <p>
+          <label class="formLabels">Email</label>
+          <input type="email" id="email" required>
+        </p>
+        <p>
+          <label class="formLabels">Password</label>
+          <input type="password" id="password" required>
+        </p>
+        <p>
+          <button class="formButton" id="login">Login</button>
+        </p>
+        <p>
+          <button class="formButton" id="logout">Logout</button>
+        </p>
+        <p>
+          <button class="formButton" id="register">Register</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="locationList.html">View Locations</a>
+      <a href="donationList.html">Search for Donation</a>
+      <a href="donationMaps.html">Locations on Map</a>
+      <a href="addDonation.html">Add Donation</a>
+    </div>
+
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="locationList.html">View Locations</a>
+    <a href="donationList.html">Search for Donation</a>
+    <a href="donationMaps.html">Locations on Map</a>
+    <a href="addDonation.html">Add Donation</a>
+  </div>
+
+
+  <div id="list">
+    <table id="ratTable">
+      <tr>
+        <th>Name</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Street Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>Location Type</th>
+        <th>Phone Number</th>
+        <th>Website</th>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Street Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>Location Type</th>
+        <th>Phone Number</th>
+        <th>Website</th>
+      </tr>
+
+      <tr onclick="document.location = 'locationDetail.html';">
+        <th style="background-color: #3677e2">AFD Station 4</th>
+        <th style="background-color: white">33.75416</th>
+        <th style="background-color: #3677e2">-84.37742</th>
+        <th style="background-color: white">309 EDGEWOOD AVE SE</th>
+        <th style="background-color: #3677e2">Atlanta</th>
+        <th style="background-color: white">GA</th>
+        <th style="background-color: #3677e2">30332</th>
+        <th style="background-color: white">Drop Off</th>
+        <th style="background-color: #3677e2">(404) 555 - 3456</th>
+        <th style="background-color: white">www.afd04.atl.ga</th>
+      </tr>
+      <tr onclick="document.location = 'locationDetail.html';">
+        <th style="background-color: #3677e2">BOYS & GILRS CLUB W.W. WOOLFOLK</th>
+        <th style="background-color: white">33.73182</th>
+        <th style="background-color: #3677e2">-84.43971</th>
+        <th style="background-color: white">1642 RICHLAND RD</th>
+        <th style="background-color: #3677e2">Atlanta</th>
+        <th style="background-color: white">GA</th>
+        <th style="background-color: #3677e2">30332</th>
+        <th style="background-color: white">Store</th>
+        <th style="background-color: #3677e2">(404) 555 - 1234</th>
+        <th style="background-color: white">www.bgc.wool.ga</th>
+      </tr>
+      <tr onclick="document.location = 'locationDetail.html';">
+        <th style="background-color: #3677e2">PATHWAY UPPER ROOM CHRISTIAN MINISTRIES</th>
+        <th style="background-color: white">33.70866</th>
+        <th style="background-color: #3677e2">-84.41853</th>
+        <th style="background-color: white">1683 SYLVAN RD</th>
+        <th style="background-color: #3677e2">Atlanta</th>
+        <th style="background-color: white">GA</th>
+        <th style="background-color: #3677e2">30332</th>
+        <th style="background-color: white">Warehouse</th>
+        <th style="background-color: #3677e2">(404) 555 - 5432</th>
+        <th style="background-color: white">www.pathways.org</th>
+      </tr>
+      <tr onclick="document.location = 'locationDetail.html';">
+        <th style="background-color: #3677e2">PAVILION OF HOPE INC</th>
+        <th style="background-color: white">33.80129</th>
+        <th style="background-color: #3677e2">-84.25537</th>
+        <th style="background-color: white">3558 EAST PONCE DE LEON AVE</th>
+        <th style="background-color: #3677e2">SCOTTDALE</th>
+        <th style="background-color: white">GA</th>
+        <th style="background-color: #3677e2">30079</th>
+        <th style="background-color: white">Warehouse</th>
+        <th style="background-color: #3677e2">(404) 555 - 8765</th>
+        <th style="background-color: white">www.pavhope.org</th>
+      </tr>
+      <tr onclick="document.location = 'locationDetail.html';">
+        <th style="background-color: #3677e2">D&D CONVENIENCE STORE</th>
+        <th style="background-color: white">33.71747</th>
+        <th style="background-color: #3677e2">-84.2521</th>
+        <th style="background-color: white">2426 COLUMBIA DRIVE</th>
+        <th style="background-color: #3677e2">DECATUR</th>
+        <th style="background-color: white">GA</th>
+        <th style="background-color: #3677e2">30034</th>
+        <th style="background-color: white">Drop Off</th>
+        <th style="background-color: #3677e2">(404) 555 - 9876</th>
+        <th style="background-color: white">www.ddconv.com</th>
+      </tr>
+      <tr onclick="document.location = 'locationDetail.html';">
+        <th style="background-color: #3677e2">KEEP NORTH FULTON BEAUTIFUL</th>
+        <th style="background-color: white">33.96921</th>
+        <th style="background-color: #3677e2">-84.3688</th>
+        <th style="background-color: white">470 MORGAN FALLS RD</th>
+        <th style="background-color: #3677e2">Sandy Springs</th>
+        <th style="background-color: white">GA</th>
+        <th style="background-color: #3677e2">30302</th>
+        <th style="background-color: white">Store</th>
+        <th style="background-color: #3677e2">(770) 555 - 7321</th>
+        <th style="background-color: white">www.knfb.org</th>
+      </tr>
+    </table>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/4.5.2/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="main.js"></script>
+  <script type="text/javascript">
+  </script>
+</body>
+
+</html>
